@@ -31,10 +31,14 @@ El test falla. Está bien que falle: la función del divisor todavía no existe.
 ```
 sabado-1/
   README.md                         La consigna del sábado 1
-  plantilla-especificacion.md       La plantilla que completás en pareja
+  plantilla-especificacion.md       La plantilla de la especificación
   ejemplo-especificacion-pomodoro.md  Un ejemplo bien hecho
   pomodoro/index.html               Un pomodoro hecho con un prompt vago, para leer
   explicar-codigo.md                Prompts para que la IA te explique código, de menos a más
+  subir-tu-especificacion.md        Cómo mandar tu especificación con un pull request
+alumnos/
+  README.md                         La lista de la cursada: cada uno agrega su línea
+  <tu-usuario>/                     Tu carpeta: acá va tu especificación
 divisor/
   divisor.py                        La función que tenés que escribir
   tests/test_divisor.py             Los casos de tu especificación, como tests
@@ -55,4 +59,13 @@ Si elegís otra que no sea el divisor, escribís su especificación con la misma
 
 ## Cómo trabajar con este repo
 
-Hacé un fork o clonalo y trabajá en tu copia. No hace falta mandar cambios a este repo.
+Este repo es para jugar con Git y con GitHub. El que quiera, participa; no es obligatorio.
+
+1. Hacé un **fork**: tu copia del repo, en tu cuenta. Ahí podés crear branches, romper y rehacer lo que quieras.
+2. Trabajá **solo en tu carpeta**, `alumnos/<tu-usuario-de-github>/`. Así tus cambios no se pisan con los de nadie.
+3. Cuando quieras compartir algo, abrí un **pull request** (PR) hacia este repo. Gastón comenta algunos PRs y elige casos para devolver en clase.
+4. Revisá el PR de otra persona: elegí 2 casos de su especificación, calculá el resultado sin preguntar y dejalo como comentario.
+
+El paso a paso, desde el navegador o desde la terminal, está en [`sabado-1/subir-tu-especificacion.md`](sabado-1/subir-tu-especificacion.md).
+
+**El repo es público.** Lo que subas, incluido tu usuario de GitHub, lo ve cualquiera. No subas datos personales.

@@ -1,6 +1,6 @@
 # Especificación: divisor de gastos
 
-**Pareja:** _______________ y _______________
+**Nombre:** _______________
 
 ## 1. Qué hace
 En una frase, en lenguaje común.
@@ -22,7 +22,7 @@ En una frase, en lenguaje común.
 - _______________
 
 ## 4. Casos con número esperado
-Cada caso tiene una entrada concreta y un resultado concreto. Otra pareja tiene que poder calcular el mismo número sin preguntarte nada.
+Cada caso tiene una entrada concreta y un resultado concreto. Otra persona tiene que poder calcular el mismo número sin preguntarte nada.
 
 | # | Entrada | Resultado esperado |
 | --- | --- | --- |
@@ -41,7 +41,7 @@ Algunas pistas para buscar casos borde:
 - ¿Y si hay una sola persona?
 
 ## 5. Decisiones
-Lo que eligieron ustedes, con su motivo. Si no lo deciden, lo decide la IA.
+Lo que elegiste vos, con su motivo. Si no lo decidís, lo decide la IA.
 
 | Decisión | Motivo |
 | --- | --- |
@@ -58,4 +58,4 @@ Justificá las dos decisiones.
 - [ ] Al menos 5 casos, cada uno con un número esperado.
 - [ ] Al menos 1 caso borde que la IA no consideró.
 - [ ] Al menos 1 decisión con su motivo.
-- [ ] Otra pareja calculó 2 casos y llegó al mismo número.
+- [ ] Otra persona calculó 2 casos sin preguntarte nada y llegó al mismo número (en el chat de la clase o en un comentario de tu PR).
