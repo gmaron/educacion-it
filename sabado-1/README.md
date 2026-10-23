@@ -55,10 +55,14 @@ Pegá en el chat la **entrada** de uno de tus casos, sin el resultado. Los demá
 - **Si todos llegan al mismo número,** el caso está claro.
 - **Si aparecen números distintos,** el caso es ambiguo y hay que reescribirlo.
 
+## Cierre · Tu proyecto del curso
+
+Al final de la clase elegís en Mentimeter la app que vas a construir desde el sábado 2 (la lista está en el [README principal](../README.md#las-apps-del-curso)). Después escribí en el chat tu nombre y la app que elegiste. La vamos construyendo sábado a sábado: un agente la construye, la testeamos y la explicás.
+
 ## Para el sábado 31/10
 
 1. Terminá la especificación del divisor.
-2. **Opcional:** subila al repo con un pull request y revisá el de otra persona. El paso a paso está en [`subir-tu-especificacion.md`](subir-tu-especificacion.md).
-3. Elegí la app que vas a construir desde el sábado 2 (la lista está en el [README principal](../README.md#las-apps-del-curso)). Si no es el divisor, escribí su especificación con la misma plantilla.
+2. Si elegiste otra app, escribí su especificación con la misma plantilla.
+3. **Opcional:** subila al repo con un pull request y revisá el de otra persona. El paso a paso está en [`subir-tu-especificacion.md`](subir-tu-especificacion.md).
 4. Instalá Python con la guía de EducaciónIT y cloná este repo (o tu fork).
 5. Ticket de salida, en el chat: un caso borde que la IA no consideró.
