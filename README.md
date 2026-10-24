@@ -7,7 +7,7 @@ Material de práctica del curso de EducaciónIT (comisión 86388). Son cuatro s�
 | Sábado | Pilar | Qué hacés |
 | --- | --- | --- |
 | 1 · 24/10 | Planificar | Escribís la especificación del divisor de gastos, con casos y resultados esperados |
-| 2 · 31/10 | Construir | Un agente construye tu app a partir de la especificación |
+| 2 · 31/10 | Construir | Un agente construye la app votada a partir de tu especificación |
 | 3 · 07/11 | Verificar | Los casos de la especificación se convierten en tests |
 | 4 · 14/11 | Comprender | Explicás tu código sin ayuda |
 
@@ -44,18 +44,15 @@ divisor/
   tests/test_divisor.py             Los casos de tu especificación, como tests
 ```
 
-## Las apps del curso
+## El proyecto del curso
 
-El sábado 1 todos especifican el **divisor de gastos**. Desde el sábado 2, cada uno construye una app de esta lista:
+El sábado 1 todos especifican el **divisor de gastos**. Al cierre votamos entre todos qué app construimos los sábados 2, 3 y 4. Gana una: todos hacemos la misma, cada uno la suya.
 
 1. **Divisor de gastos:** quién le debe a quién después de una salida.
-2. **Registro de gastos personales:** cuánto gastaste por categoría y por mes.
-3. **Propinas y cuotas:** cuánto paga cada uno, o cada mes con interés.
-4. **Promedio de notas:** si aprobás, recuperás o promocionás.
-5. **Conversor de recetas:** escalar porciones y convertir unidades.
-6. **Control de stock:** qué falta y cuándo hay que reponer.
+2. **Registro de gastos personales:** cuánto gastaste por categoría y por mes, guardado en un archivo CSV.
+3. **Plan de estudio:** el promedio y la condición de cada materia (promociona, regulariza o recursa) y cuánto de la carrera llevás aprobado.
 
-Si elegís otra que no sea el divisor, escribís su especificación con la misma plantilla.
+Si gana otra que no sea el divisor, esa semana cada uno escribe su especificación con la misma plantilla.
 
 ## Cómo trabajar con este repo
 
