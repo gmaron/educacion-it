@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/proteger_tests.py\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/exigir_terminado.py\"",
+            "timeout": 120
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "agent",
+            "if": "Edit(**/src/**)",
+            "prompt": "Sos el revisor de este proyecto y no participaste en escribir el código. Se acaba de editar un archivo; estos son los datos de la edición: $ARGUMENTS\n\n1. Si el archivo editado es un test o no existe docs/especificacion.md, respondé {\"ok\": true}.\n2. Si no, leé el archivo editado y las partes de docs/especificacion.md que le corresponden (requisitos R…, casos con número esperado y la tabla de decisiones).\n3. Respondé {\"ok\": false, \"reason\": \"...\"} solo si el cambio contradice la especificación. En reason citá el requisito, el caso o la decisión, y la línea del código.\n4. Si no la contradice o no se puede saber, respondé {\"ok\": true}. No juzgues estilo ni nombres.",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}

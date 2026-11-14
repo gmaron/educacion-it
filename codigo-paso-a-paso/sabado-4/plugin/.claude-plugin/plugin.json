@@ -1,0 +1,9 @@
+{
+  "name": "setup-gmaron",
+  "version": "1.0.0",
+  "description": "Setup de trabajo de gmaron: skills auditar, explicar y handoff, y hooks que protegen los tests commiteados y no dejan terminar con tests o ruff fallando.",
+  "author": {
+    "name": "Gaston Maron"
+  },
+  "keywords": ["skills", "hooks", "pytest", "ruff"]
+}

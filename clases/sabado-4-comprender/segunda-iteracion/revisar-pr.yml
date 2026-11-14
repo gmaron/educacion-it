@@ -1,0 +1,23 @@
+name: Revisar PR contra la especificación
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Revisión con el subagente revisor
+        working-directory: alumnos/gmaron
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          claude -p "Usá el subagente revisor para revisar los archivos de src/ que cambian en este PR contra docs/especificacion.md. Devolvé la tabla en markdown." \
+            --allowedTools "Agent,Read,Grep,Glob" \
+            --max-turns 30 >> "$GITHUB_STEP_SUMMARY"

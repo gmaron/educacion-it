@@ -1,0 +1,16 @@
+{
+  "name": "gmaron",
+  "owner": {
+    "name": "Gaston Maron"
+  },
+  "metadata": {
+    "description": "Marketplace personal de gmaron con su setup de Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "setup-gmaron",
+      "source": "./",
+      "description": "Setup de trabajo de gmaron: skills y hooks de pytest y ruff."
+    }
+  ]
+}

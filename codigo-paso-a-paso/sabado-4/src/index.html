@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La división del asado</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='14' font-size='14'%3E🔥%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --papel: #f1e4c8;
+    --papel-oscuro: #e3d0a8;
+    --cuero: #6b3f22;
+    --cuero-claro: #8a5a36;
+    --tinta: #2e1d10;
+    --brasa: #b8361c;
+    --pasto: #3f6b22;
+    --madera-1: #4a2c18;
+    --madera-2: #5b3720;
+    --guarda: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Crect width='48' height='24' fill='%23f1e4c8'/%3E%3Cpath d='M0 0h48v3H0zM0 21h48v3H0z' fill='%232e1d10'/%3E%3Cpath d='M24 3l12 9-12 9-12-9z' fill='%232e1d10'/%3E%3Cpath d='M24 7l7 5-7 5-7-5z' fill='%23b8361c'/%3E%3Cpath d='M24 10l3 2-3 2-3-2z' fill='%23f1e4c8'/%3E%3Cpath d='M0 3l6 4.5L0 12zM48 3l-6 4.5L48 12zM0 21l6-4.5L0 12zM48 21l-6-4.5L48 12z' fill='%23b8361c'/%3E%3C/svg%3E");
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 32px 16px;
+    color: var(--tinta);
+    font: 17px/1.5 "Lora", Georgia, serif;
+    background-color: var(--madera-1);
+    background-image:
+      repeating-linear-gradient(90deg, rgba(0,0,0,.18) 0 2px, transparent 2px 140px),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 7px),
+      linear-gradient(180deg, var(--madera-2), var(--madera-1));
+  }
+
+  .tabla {
+    max-width: 720px;
+    margin: 0 auto;
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.35), transparent 60%),
+      radial-gradient(ellipse at 80% 90%, rgba(120,80,30,.18), transparent 55%),
+      var(--papel);
+    border-radius: 4px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.5);
+    overflow: hidden;
+  }
+
+  .guarda {
+    height: 24px;
+    background: var(--guarda) repeat-x;
+  }
+
+  .contenido { padding: 24px 28px 32px; }
+
+  h1, h2 {
+    font-family: "Rye", "Rockwell", Georgia, serif;
+    font-weight: normal;
+    color: var(--cuero);
+    letter-spacing: .02em;
+  }
+
+  h1 {
+    margin: 4px 0 0;
+    text-align: center;
+    font-size: clamp(30px, 7vw, 46px);
+    line-height: 1.1;
+    text-shadow: 1px 1px 0 var(--papel-oscuro), 2px 2px 0 rgba(107,63,34,.25);
+  }
+
+  .bajada {
+    margin: 6px 0 22px;
+    text-align: center;
+    font-style: italic;
+    color: var(--cuero-claro);
+  }
+
+  h2 {
+    margin: 28px 0 10px;
+    font-size: 24px;
+    border-bottom: 2px solid var(--cuero);
+    padding-bottom: 4px;
+  }
+
+  .fila {
+    display: grid;
+    grid-template-columns: 1fr 140px 40px;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .encabezado {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--cuero-claro);
+    margin-bottom: 4px;
+  }
+
+  input {
+    width: 100%;
+    padding: 9px 11px;
+    font: inherit;
+    color: var(--tinta);
+    background: #fbf4e3;
+    border: 2px solid var(--cuero-claro);
+    border-radius: 3px;
+  }
+
+  input:focus {
+    outline: 3px solid rgba(184,54,28,.35);
+    border-color: var(--brasa);
+  }
+
+  .monto { text-align: right; }
+
+  button {
+    font: inherit;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  .quitar {
+    border: 2px solid var(--cuero-claro);
+    background: transparent;
+    color: var(--cuero);
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .quitar:hover { background: var(--papel-oscuro); }
+
+  .acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .agregar {
+    padding: 9px 16px;
+    border: 2px dashed var(--cuero-claro);
+    background: transparent;
+    color: var(--cuero);
+  }
+
+  .repartir {
+    margin-left: auto;
+    padding: 10px 22px;
+    border: none;
+    color: #fff3dc;
+    font-family: "Rye", Georgia, serif;
+    font-size: 19px;
+    background: linear-gradient(180deg, #cf4a24, var(--brasa) 55%, #8e2812);
+    box-shadow: 0 3px 0 #5e1a0b;
+  }
+
+  .repartir:active { transform: translateY(2px); box-shadow: 0 1px 0 #5e1a0b; }
+
+  .error {
+    margin-top: 16px;
+    padding: 10px 14px;
+    border-left: 5px solid var(--brasa);
+    background: rgba(184,54,28,.1);
+    font-weight: 600;
+  }
+
+  .cuentas {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .cuentas th {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--cuero-claro);
+    padding: 4px 6px;
+  }
+
+  .cuentas td {
+    padding: 9px 6px;
+    border-top: 1px dashed var(--cuero-claro);
+  }
+
+  .cuentas .num { text-align: right; white-space: nowrap; }
+
+  .persona {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+  }
+
+  .marca {
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+    color: #fff;
+    font: 700 18px/1 system-ui, sans-serif;
+  }
+
+  .marca.debe { background: var(--brasa); }
+  .marca.recibe { background: var(--pasto); }
+  .marca.a_mano { font-size: 22px; }
+
+  .estado-debe { color: var(--brasa); }
+  .estado-recibe { color: var(--pasto); }
+
+  .leyenda {
+    margin: 12px 0 0;
+    font-size: 14px;
+    color: var(--cuero-claro);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+
+  .leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+  .leyenda .marca { width: 18px; height: 18px; font-size: 14px; }
+  .leyenda .marca.a_mano { font-size: 16px; }
+
+  .transferencias {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .transferencias li {
+    padding: 10px 0;
+    border-top: 1px dashed var(--cuero-claro);
+    font-size: 18px;
+  }
+
+  .transferencias li:first-child { border-top: none; }
+
+  .transferencias strong { color: var(--cuero); }
+
+  .a-mano {
+    text-align: center;
+    font-family: "Rye", Georgia, serif;
+    font-size: 26px;
+    color: var(--pasto);
+    margin: 8px 0;
+  }
+
+  [hidden] { display: none !important; }
+
+  @media (max-width: 520px) {
+    .contenido { padding: 20px 16px 26px; }
+    .fila { grid-template-columns: 1fr 104px 38px; gap: 6px; }
+    .repartir { margin-left: 0; width: 100%; }
+    .cuentas td, .cuentas th { padding-left: 4px; padding-right: 4px; }
+    .persona { gap: 6px; }
+  }
+</style>
+</head>
+<body>
+<main class="tabla">
+  <div class="guarda" aria-hidden="true"></div>
+  <div class="contenido">
+    <h1>La división del asado</h1>
+    <p class="bajada">Cada uno anota lo que puso y la cuenta se reparte en partes iguales.</p>
+
+    <form id="formulario" novalidate>
+      <div class="fila encabezado" aria-hidden="true">
+        <span>Nombre</span><span class="monto">Puso ($)</span><span></span>
+      </div>
+      <div id="filas"></div>
+      <div class="acciones">
+        <button type="button" class="agregar" id="agregar">+ Sumar a otro</button>
+        <button type="submit" class="repartir">Repartir</button>
+      </div>
+    </form>
+
+    <p class="error" id="error" role="alert" hidden></p>
+
+    <section id="resultado" hidden aria-live="polite">
+      <h2>Las cuentas</h2>
+      <table class="cuentas">
+        <thead>
+          <tr><th>Quién</th><th class="num">Puso</th><th>Cómo queda</th></tr>
+        </thead>
+        <tbody id="cuentas"></tbody>
+      </table>
+      <p class="leyenda">
+        <span><span class="marca debe" aria-hidden="true">−</span> debe</span>
+        <span><span class="marca recibe" aria-hidden="true">+</span> le deben</span>
+        <span><span class="marca a_mano" aria-hidden="true">🤝</span> está a mano</span>
+      </p>
+
+      <h2>Las transferencias</h2>
+      <ul class="transferencias" id="transferencias"></ul>
+      <p class="a-mano" id="a-mano" hidden>Están a mano</p>
+    </section>
+  </div>
+  <div class="guarda" aria-hidden="true"></div>
+</main>
+
+<template id="fila">
+  <div class="fila">
+    <input class="nombre" type="text" placeholder="Nombre" aria-label="Nombre" autocomplete="off">
+    <input class="monto" type="text" inputmode="decimal" placeholder="0" aria-label="Lo que puso, en pesos" autocomplete="off">
+    <button type="button" class="quitar" aria-label="Quitar">×</button>
+  </div>
+</template>
+
+<script>
+  const filas = document.getElementById("filas");
+  const plantilla = document.getElementById("fila");
+  const conCentavos = new Intl.NumberFormat("es-AR", {
+    style: "currency", currency: "ARS",
+  });
+  const sinCentavos = new Intl.NumberFormat("es-AR", {
+    style: "currency", currency: "ARS", maximumFractionDigits: 0,
+  });
+  // $ 1.000 si es entero; $ 1.500,50 si tiene centavos.
+  const pesos = {
+    format: (monto) => (Number.isInteger(monto) ? sinCentavos : conCentavos).format(monto),
+  };
+
+  // Cómo se muestra cada estado: un marcador y una palabra, así se entiende
+  // sin ver los colores.
+  const ESTADOS = {
+    debe: { marca: "−", texto: (saldo) => `debe ${pesos.format(saldo)}` },
+    recibe: { marca: "+", texto: (saldo) => `le deben ${pesos.format(saldo)}` },
+    a_mano: { marca: "🤝", texto: () => "está a mano" },
+  };
+
+  function agregarFila(nombre = "", monto = "") {
+    const fila = plantilla.content.firstElementChild.cloneNode(true);
+    fila.querySelector(".nombre").value = nombre;
+    fila.querySelector(".monto").value = monto;
+    fila.querySelector(".quitar").addEventListener("click", () => {
+      if (filas.children.length > 1) fila.remove();
+    });
+    filas.append(fila);
+    return fila;
+  }
+
+  function leerPagos() {
+    return [...filas.children]
+      .map((fila) => ({
+        nombre: fila.querySelector(".nombre").value.trim(),
+        monto: fila.querySelector(".monto").value.trim(),
+      }))
+      .filter((p) => p.nombre || p.monto);
+  }
+
+  function celda(contenido, clase) {
+    const td = document.createElement("td");
+    if (clase) td.className = clase;
+    td.append(contenido);
+    return td;
+  }
+
+  function mostrarError(mensaje) {
+    const error = document.getElementById("error");
+    error.textContent = `Error: ${mensaje}`;
+    error.hidden = false;
+    document.getElementById("resultado").hidden = true;
+  }
+
+  function mostrar({ personas, transferencias }) {
+    document.getElementById("error").hidden = true;
+
+    const cuentas = document.getElementById("cuentas");
+    cuentas.replaceChildren(...personas.map((p) => {
+      const estado = ESTADOS[p.estado];
+      const marca = document.createElement("span");
+      marca.className = `marca ${p.estado}`;
+      marca.setAttribute("aria-hidden", "true");
+      marca.textContent = estado.marca;
+      const nombre = document.createElement("span");
+      nombre.className = "persona";
+      nombre.append(marca, p.nombre);
+
+      const tr = document.createElement("tr");
+      tr.append(
+        celda(nombre),
+        celda(pesos.format(p.puso), "num"),
+        celda(estado.texto(p.saldo), `estado-${p.estado}`),
+      );
+      return tr;
+    }));
+
+    const lista = document.getElementById("transferencias");
+    lista.replaceChildren(...transferencias.map((t) => {
+      const li = document.createElement("li");
+      const quien = document.createElement("strong");
+      quien.textContent = t.quien_paga;
+      const aQuien = document.createElement("strong");
+      aQuien.textContent = t.a_quien;
+      li.append(quien, ` le transfiere ${pesos.format(t.monto)} a `, aQuien);
+      return li;
+    }));
+    document.getElementById("a-mano").hidden = transferencias.length > 0;
+    lista.hidden = transferencias.length === 0;
+
+    document.getElementById("resultado").hidden = false;
+  }
+
+  document.getElementById("agregar").addEventListener("click", () => {
+    agregarFila().querySelector(".nombre").focus();
+  });
+
+  document.getElementById("formulario").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const pagos = leerPagos();
+    if (pagos.length === 0) {
+      mostrarError("cargá al menos a una persona");
+      return;
+    }
+    try {
+      const respuesta = await fetch("/dividir", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pagos }),
+      });
+      const cuerpo = await respuesta.json();
+      if (respuesta.ok) mostrar(cuerpo);
+      else mostrarError(cuerpo.error || "los datos no tienen el formato esperado");
+    } catch {
+      mostrarError("no se pudo hablar con el servidor");
+    }
+  });
+
+  agregarFila();
+  agregarFila();
+  agregarFila();
+</script>
+</body>
+</html>

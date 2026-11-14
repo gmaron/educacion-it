@@ -1,0 +1,6 @@
+{
+  "name": "setup-gmaron",
+  "version": "1.0.0",
+  "description": "Mi setup del divisor: /auditar, /explicar, /handoff y los hooks que protegen los tests y no dejan terminar en rojo.",
+  "author": { "name": "gmaron" }
+}

@@ -11,6 +11,12 @@ Material de práctica del curso de EducaciónIT (comisión 86388). Son cuatro s�
 | 3 · 07/11 | Verificar | El agente no puede dar por terminado algo que no pase los casos de tu especificación |
 | 4 · 14/11 | Comprender | Explicás sin ayuda tu código y tu setup |
 
+## Todo el material del curso
+
+- **[`clases/`](clases/):** la presentación en PDF y los prompts de cada sábado, en el orden de la clase.
+- **[`codigo-paso-a-paso/`](codigo-paso-a-paso/):** el divisor del docente al final de cada sábado, con sus skills, hooks y plugin.
+- **Todo en un .zip:** en [Releases](https://github.com/gmaron/educacion-it/releases), el archivo `material-curso.zip`.
+
 ## Puesta en marcha
 
 Necesitás Git, Python 3.11 o más nuevo y [Claude Code](https://docs.claude.com/en/docs/claude-code/overview). Si usás Codex, también sirve: lee los `AGENTS.md`.
@@ -43,6 +49,8 @@ sabado-3/
   skills/auditar/SKILL.md           La skill que audita tu especificación, para copiar a tu carpeta
   skills/explicar/SKILL.md          La skill que corrige tu explicación de una función
   hooks/                            Hooks y settings.json de referencia (ajustá las rutas a tu carpeta)
+clases/                             El material de los cuatro sábados: la presentación en PDF y los prompts de cada clase
+codigo-paso-a-paso/                 El divisor del docente como quedó al final de cada sábado, para comparar con el tuyo
 alumnos/
   README.md                         La lista de la cursada: cada uno agrega su línea
   <tu-usuario>/                     Tu carpeta: acá va tu especificación

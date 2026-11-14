@@ -1,0 +1,11 @@
+{
+  "name": "setups-curso",
+  "owner": { "name": "gmaron" },
+  "plugins": [
+    {
+      "name": "setup-gmaron",
+      "source": "./setup-gmaron",
+      "description": "Mi setup del divisor: /auditar, /explicar, /handoff y los hooks que protegen los tests y no dejan terminar en rojo."
+    }
+  ]
+}
