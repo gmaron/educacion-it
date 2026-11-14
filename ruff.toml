@@ -1,0 +1,14 @@
+# Estilo del curso: PEP 8 y docstrings según PEP 257.
+# Se corre con `ruff check` desde la carpeta de cada alumno.
+line-length = 79
+
+[lint]
+select = ["E", "W", "F", "D"]
+
+[lint.pydocstyle]
+convention = "pep257"
+
+[lint.per-file-ignores]
+# El nombre del test ya dice qué caso prueba (test_C3_...).
+"**/test_*.py" = ["D"]
+"**/tests/**" = ["D"]

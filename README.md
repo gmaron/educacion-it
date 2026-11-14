@@ -7,13 +7,13 @@ Material de práctica del curso de EducaciónIT (comisión 86388). Son cuatro s�
 | Sábado | Pilar | Qué hacés |
 | --- | --- | --- |
 | 1 · 24/10 | Planificar | Escribís la especificación del divisor de gastos, con casos y resultados esperados |
-| 2 · 31/10 | Construir | Un agente construye la app votada a partir de tu especificación |
-| 3 · 07/11 | Verificar | Los casos de la especificación se convierten en tests |
-| 4 · 14/11 | Comprender | Explicás tu código sin ayuda |
+| 2 · 31/10 | Construir | Un agente construye tu divisor a partir de tu especificación, con un setup que armás paso a paso |
+| 3 · 07/11 | Verificar | El agente no puede dar por terminado algo que no pase los casos de tu especificación |
+| 4 · 14/11 | Comprender | Explicás sin ayuda tu código y tu setup |
 
 ## Puesta en marcha
 
-Necesitás Git, Python 3.11 o más nuevo y una cuenta sin costo en [Claude.ai](https://claude.ai) o [Gemini](https://gemini.google.com).
+Necesitás Git, Python 3.11 o más nuevo y [Claude Code](https://docs.claude.com/en/docs/claude-code/overview). Si usás Codex, también sirve: lee los `AGENTS.md`.
 
 ```bash
 git clone https://github.com/gmaron/educacion-it.git
@@ -29,6 +29,8 @@ El test falla. Está bien que falle: la función del divisor todavía no existe.
 ## Qué hay
 
 ```
+AGENTS.md                           Las reglas del curso para el agente (las leen Claude Code y Codex)
+ruff.toml                           El estilo del curso: PEP 8 y docstrings (se corre con `ruff check`)
 sabado-1/
   README.md                         La consigna del sábado 1
   plantilla-especificacion.md       La plantilla de la especificación
@@ -36,6 +38,11 @@ sabado-1/
   pomodoro/index.html               Un pomodoro hecho con un prompt vago, para leer
   explicar-codigo.md                Prompts para que la IA te explique código, de menos a más
   subir-tu-especificacion.md        Cómo mandar tu especificación con un pull request
+sabado-3/
+  README.md                         La consigna del sábado 3: la auditoría, los hooks, la API y el loop
+  skills/auditar/SKILL.md           La skill que audita tu especificación, para copiar a tu carpeta
+  skills/explicar/SKILL.md          La skill que corrige tu explicación de una función
+  hooks/                            Hooks y settings.json de referencia (ajustá las rutas a tu carpeta)
 alumnos/
   README.md                         La lista de la cursada: cada uno agrega su línea
   <tu-usuario>/                     Tu carpeta: acá va tu especificación
@@ -46,13 +53,20 @@ divisor/
 
 ## El proyecto del curso
 
-El sábado 1 todos especifican el **divisor de gastos**. Al cierre votamos entre todos qué app construimos los sábados 2, 3 y 4. Gana una: todos hacemos la misma, cada uno la suya.
+El sábado 1 todos especificaron el **divisor de gastos**: quién le debe a quién después de una salida. En la votación del cierre ganó el divisor, así que es la app de los sábados 2, 3 y 4. Todos hacemos la misma, cada uno la suya, a partir de su especificación.
 
-1. **Divisor de gastos:** quién le debe a quién después de una salida.
-2. **Registro de gastos personales:** cuánto gastaste por categoría y por mes, guardado en un archivo CSV.
-3. **Plan de estudio:** el promedio y la condición de cada materia (promociona, regulariza o recursa) y cuánto de la carrera llevás aprobado.
+## Trabajar con el agente
 
-Si gana otra que no sea el divisor, esa semana cada uno escribe su especificación con la misma plantilla.
+Abrí Claude Code **desde tu carpeta**, no desde la raíz del repo:
+
+```bash
+cd alumnos/<tu-usuario-de-github>
+claude
+```
+
+Desde ahí, el agente lee el `AGENTS.md` de la raíz, con las reglas del curso, y el `CLAUDE.md` de tu carpeta, con las de tu proyecto. También toma tus hooks y tus skills de `alumnos/<tu-usuario>/.claude/`. Si lo abrís desde la raíz, tus skills no aparecen.
+
+Tu configuración personal (`settings.local.json`, `CLAUDE.local.md`) no se sube: está en el `.gitignore`.
 
 ## Cómo trabajar con este repo
 

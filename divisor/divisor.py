@@ -1,11 +1,13 @@
 """Divisor de gastos: quién le debe a quién después de una salida.
 
-Esta función la escribís vos, con ayuda de la IA, a partir de tu especificación.
-Antes de pedirle el código, fijate que tu especificación responda lo mismo que esta firma:
+Esta función la escribís vos, con ayuda de la IA, a partir de tu
+especificación. Antes de pedirle el código, fijate que tu especificación
+responda lo mismo que esta firma:
 
 - "Qué recibe" (sección 2) son los parámetros.
 - "Qué devuelve" (sección 3) es el valor de salida.
-- Cada caso con número esperado (sección 4) es un test en tests/test_divisor.py.
+- Cada caso con número esperado (sección 4) es un test en
+  tests/test_divisor.py.
 """
 
 Transferencia = tuple[str, str, float]
@@ -13,7 +15,9 @@ Transferencia = tuple[str, str, float]
 
 
 def dividir(pagos: dict[str, float]) -> list[Transferencia]:
-    """Recibe cuánto puso cada persona y devuelve las transferencias para quedar a mano.
+    """Devuelve las transferencias para que todos queden a mano.
+
+    Recibe cuánto puso cada persona.
 
     Ejemplo: {"Ana": 2000, "Beto": 0} -> [("Beto", "Ana", 1000)]
 
@@ -23,4 +27,6 @@ def dividir(pagos: dict[str, float]) -> list[Transferencia]:
     - ¿En qué orden se devuelven las transferencias?
     - ¿float alcanza para plata, o conviene Decimal?
     """
-    raise NotImplementedError("Escribí esta función a partir de tu especificación.")
+    raise NotImplementedError(
+        "Escribí esta función a partir de tu especificación."
+    )

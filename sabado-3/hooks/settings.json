@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(../../.venv/bin/python -m pytest -q)",
+      "Bash(../../.venv/bin/ruff check .)"
+    ],
+    "deny": [
+      "Edit(./docs/especificacion.md)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/../../.venv/bin/python \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/proteger_tests.py"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/../../.venv/bin/python \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/terminado.py"
+          }
+        ]
+      }
+    ]
+  }
+}
